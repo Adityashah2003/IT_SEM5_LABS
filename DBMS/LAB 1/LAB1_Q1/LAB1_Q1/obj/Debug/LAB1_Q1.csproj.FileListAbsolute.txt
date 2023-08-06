@@ -1,0 +1,20 @@
+D:\210911310\LAB1_Q1\LAB1_Q1\bin\Debug\LAB1_Q1.exe.config
+D:\210911310\LAB1_Q1\LAB1_Q1\bin\Debug\LAB1_Q1.exe
+D:\210911310\LAB1_Q1\LAB1_Q1\bin\Debug\LAB1_Q1.pdb
+D:\210911310\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.csprojResolveAssemblyReference.cache
+D:\210911310\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.Form1.resources
+D:\210911310\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.Properties.Resources.resources
+D:\210911310\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.csproj.GenerateResource.Cache
+D:\210911310\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.exe
+D:\210911310\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.pdb
+C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\bin\Debug\LAB1_Q1.exe.config
+C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\bin\Debug\LAB1_Q1.exe
+C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\bin\Debug\LAB1_Q1.pdb
+C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.csproj.AssemblyReference.cache
+C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.csproj.SuggestedBindingRedirects.cache
+C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.Form1.resources
+C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.Properties.Resources.resources
+C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.csproj.GenerateResource.cache
+C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.csproj.CoreCompileInputs.cache
+C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.exe
+C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.pdb
