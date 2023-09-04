@@ -1,0 +1,359 @@
+
+SQL> create table Person(
+  2  driver_id varchar(10),
+  3  name varchar(15),
+  4  address varchar(15),
+  5  primary key(driver_id));
+
+Table created.
+
+SQL> desc Person
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DRIVER_ID                                 NOT NULL VARCHAR2(10)
+ NAME                                               VARCHAR2(15)
+ ADDRESS                                            VARCHAR2(15)
+
+SQL> create table Car(
+  2  regno varchar(10),
+  3  model varchar(10),
+  4  year int,
+  5  primary key(regno));
+
+Table created.
+
+SQL> desc Car
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL VARCHAR2(10)
+ MODEL                                              VARCHAR2(10)
+ YEAR                                               NUMBER(38)
+
+SQL> create table Accident(
+  2  reportno int,
+  3  accd_date date,
+  4  location varchar(10),
+  5  primary key(reportno));
+
+Table created.
+
+SQL> create table Owns(
+  2  driver_id varchar(10),
+  3  regno varchar(10),
+  4  primary key(driver_id,regno),
+  5  foreign key(driver_id) references Person,
+  6  foreign key(regno) references Car);
+
+Table created.
+
+SQL> desc owns
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DRIVER_ID                                 NOT NULL VARCHAR2(10)
+ REGNO                                     NOT NULL VARCHAR2(10)
+
+SQL> create table Participated(
+  2  driver_id varchar(10),
+  3  regno varchar(10),
+  4  reportno int,
+  5  damage_amount int,
+  6  primary key(driver_id,regno,reportno),
+  7  foreign key(driver_id) references Person,
+  8  foreign key(regno) references Car,
+  9  foreign key(reportno) references Accident);
+
+Table created.
+
+SQL> desc Participated
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DRIVER_ID                                 NOT NULL VARCHAR2(10)
+ REGNO                                     NOT NULL VARCHAR2(10)
+ REPORTNO                                  NOT NULL NUMBER(38)
+ DAMAGE_AMOUNT                                      NUMBER(38)
+
+SQL> commit;
+
+Commit complete.
+
+SQL> insert into Person
+  2  values('12345','abcde','Block 8');
+
+1 row created.
+
+SQL> insert into Person
+  2  values('56789','fghij','Block 9');
+
+1 row created.
+
+SQL> insert into Person
+  2  values('10112','klmno','Block 10');
+
+1 row created.
+
+SQL> insert into Person
+  2  values('131415','pqrst','Block 14');
+
+1 row created.
+
+SQL> select * from Person
+  2  ;
+
+DRIVER_ID  NAME            ADDRESS
+---------- --------------- ---------------
+12345      abcde           Block 8
+56789      fghij           Block 9
+10112      klmno           Block 10
+131415     pqrst           Block 14
+
+SQL> insert into Person
+  2  values('161718','uvwxyz','Block 15');
+
+1 row created.
+
+SQL> select * from Person;
+
+DRIVER_ID  NAME            ADDRESS
+---------- --------------- ---------------
+12345      abcde           Block 8
+56789      fghij           Block 9
+10112      klmno           Block 10
+131415     pqrst           Block 14
+161718     uvwxyz          Block 15
+
+SQL> insert into Car values('10000','FSA','2012');
+
+1 row created.
+
+SQL> insert into Car values('20000','FSA','2012');
+
+1 row created.
+
+SQL> insert into Car values('30000','FSN','2018');
+
+1 row created.
+
+SQL> insert into Car values('40000','FSUK','2016');
+
+1 row created.
+
+SQL> insert into Car values('50000','FSUK','2020');
+
+1 row created.
+
+SQL> select * from Car
+  2  ;
+
+REGNO      MODEL            YEAR
+---------- ---------- ----------
+10000      FSA              2012
+20000      FSA              2012
+30000      FSN              2018
+40000      FSUK             2016
+50000      FSUK             2020
+
+SQL> commit;
+
+Commit complete.
+
+SQL> insert into Accident values('00001','12-MAY-2003','Coin Circle');
+insert into Accident values('00001','12-MAY-2003','Coin Circle')
+
+SQL> insert into Accident values('00001','12-MAY-2003','Manipal');
+
+1 row created.
+
+SQL> insert into Accident values('00002','02-MAY-2023','Gate-1');
+
+1 row created.
+
+SQL> insert into Accident values('00002','16-AUG-2023','Gate-2');
+insert into Accident values('00002','16-AUG-2023','Gate-2')
+
+SQL> insert into Accident values('00003','16-AUG-2023','Gate-2');
+
+1 row created.
+
+SQL> insert into Accident values('00004','18-AUG-2023','Gate-3');
+
+1 row created.
+
+SQL> insert into Accident values('00005','29-JUN-2023','Gate-4');
+
+1 row created.
+
+SQL> select * from Accident
+  2  ;
+
+  REPORTNO ACCD_DATE LOCATION
+---------- --------- ----------
+         1 12-MAY-03 Manipal
+         2 02-MAY-23 Gate-1
+         3 16-AUG-23 Gate-2
+         4 18-AUG-23 Gate-3
+         5 29-JUN-23 Gate-4
+
+SQL> select * from Person;
+
+DRIVER_ID  NAME            ADDRESS
+---------- --------------- ---------------
+12345      abcde           Block 8
+56789      fghij           Block 9
+10112      klmno           Block 10
+131415     pqrst           Block 14
+161718     uvwxyz          Block 15
+
+SQL> select * from Car;
+
+REGNO      MODEL            YEAR
+---------- ---------- ----------
+10000      FSA              2012
+20000      FSA              2012
+30000      FSN              2018
+40000      FSUK             2016
+50000      FSUK             2020
+
+SQL> insert into Owns values('12345','10000');
+
+1 row created.
+
+SQL> insert into Owns values('56789','20000');
+
+1 row created.
+
+SQL> insert into Owns values('10112','30000');
+
+1 row created.
+
+SQL> insert into Owns values('131415','40000');
+
+1 row created.
+
+SQL> insert into Owns values('161718','50000');
+
+1 row created.
+
+SQL> select * from Owns
+  2  ;
+
+DRIVER_ID  REGNO
+---------- ----------
+10112      30000
+12345      10000
+131415     40000
+161718     50000
+56789      20000
+
+SQL> insert into Participated values('12345','10000','00001','30000');
+
+1 row created.
+
+SQL> insert into Participated values('56789','20000','00002','8600');
+
+1 row created.
+
+SQL> insert into Participated values('10112','30000','00003','76170');
+
+1 row created.
+
+SQL> insert into Participated values('131415','40000','00004','6473');
+
+1 row created.
+
+SQL> insert into Participated values('161718','50000','00005','21605');
+
+1 row created.
+
+SQL> select * from Participated
+  2  ;
+
+DRIVER_ID  REGNO        REPORTNO DAMAGE_AMOUNT
+---------- ---------- ---------- -------------
+12345      10000               1         30000
+56789      20000               2          8600
+10112      30000               3         76170
+131415     40000               4          6473
+161718     50000               5         21605
+
+SQL> commit;
+
+Commit complete.
+
+SQL> update Participated
+  2  set damage_amount=25000
+  3  where reportno==00001
+  4  ;
+where reportno==00001
+               *
+ERROR at line 3:
+ORA-00936: missing expression
+
+
+SQL> update Participated
+  2  set damage_amount=25000
+  3  where reportno=00001;
+
+1 row updated.
+
+SQL> select * from Participated
+  2  ;
+
+DRIVER_ID  REGNO        REPORTNO DAMAGE_AMOUNT
+---------- ---------- ---------- -------------
+12345      10000               1         25000
+56789      20000               2          8600
+10112      30000               3         76170
+131415     40000               4          6473
+161718     50000               5         21605
+
+SQL> select * from Accident
+  2  ;
+
+  REPORTNO ACCD_DATE LOCATION
+---------- --------- ----------
+         1 12-MAY-03 Manipal
+         2 02-MAY-23 Gate-1
+         3 16-AUG-23 Gate-2
+         4 18-AUG-23 Gate-3
+         5 29-JUN-23 Gate-4
+
+
+SQL> insert into Accident values('90000','18-AUG-2024','MIT');
+
+1 row created.
+
+SQL> delete from Accident
+  2  where extract(year from accd_date)='2024';
+
+1 row deleted.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> alter table Person add Gender varchar(10);
+
+Table altered.
+
+SQL> desc Person
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DRIVER_ID                                 NOT NULL VARCHAR2(10)
+ NAME                                               VARCHAR2(15)
+ ADDRESS                                            VARCHAR2(15)
+ GENDER                                             VARCHAR2(10)
+
+SQL> alter table Person drop column Gender;
+
+Table altered.
+
+SQL> desc Person
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DRIVER_ID                                 NOT NULL VARCHAR2(10)
+ NAME                                               VARCHAR2(15)
+ ADDRESS                                            VARCHAR2(15)
+
+SQL> commit;
+
+Commit complete.
