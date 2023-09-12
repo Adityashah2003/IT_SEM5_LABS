@@ -1,21 +1,12 @@
 #include<string.h>
-
 #include<arpa/inet.h>
-
 #include<stdlib.h>
-
 #include<stdio.h>
-
 #include<unistd.h>
-
 #include<sys/socket.h>
-
 #include<sys/types.h>
-
 #include<netinet/in.h>
-
 #include<fcntl.h>
-
 #include<sys/stat.h>
 
 int main() {

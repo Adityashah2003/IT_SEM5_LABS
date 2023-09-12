@@ -1,0 +1,158 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 100000FF        DCD              0x100000FF  ; stack pointer val
+                                                            ue when stack is em
+                                                            pty
+    5 00000004 00000000        DCD              Reset_Handler ; reset vector
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode, CODE, READONLY
+    8 00000000                 EXPORT           Reset_Handler
+    9 00000000                 ENTRY
+   10 00000000         Reset_Handler
+   11 00000000 4811            LDR              R0,=N1
+   12 00000002 4912            LDR              R1,=N2
+   13 00000004 4E12            LDR              R6,=RES
+   14 00000006 F04F 0504       MOV              R5,#4
+   15 0000000A         
+   16 0000000A         LOOP
+   17 0000000A F850 2B04       LDR              R2,[R0],#4
+   18 0000000E F851 3B04       LDR              R3,[R1],#4
+   19 00000012 189C            ADDS             R4,R3,R2
+   20 00000014 F846 4B04       STR              R4,[R6],#4
+   21 00000018 F04F 0400       MOV              R4,#0
+   22 0000001C F154 0400       ADCS             R4,#0X0
+   23 00000020 3D01            SUBS             R5,#1
+   24 00000022 D1F2            BNE              LOOP
+   25 00000024 6034            STR              R4,[R6]
+   26 00000026         
+   27 00000026         STOP
+   28 00000026 E7FE            B                STOP
+   29 00000028 00000001 
+              00000002 
+              00000003 
+              00000004 N1      DCD              0X00000001,0X00000002,0X0000000
+3,0X00000004
+   30 00000038 00000006 
+              00000007 
+              00000008 
+              00000009 N2      DCD              0X00000006,0X00000007,0X0000000
+8,0X00000009
+   31 00000048 00000000 
+              00000000 
+              00000000         AREA             mydata, DATA, READWRITE
+   32 00000000 00000000 
+                       RES     DCD              0
+   33 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=1.d -o1.
+o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NXP\LPC1
+7xx --predefine="__EVAL SETA 1" --list=1.lst 1.S
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file 1.S
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file 1.S
+   Uses
+      At line 2 in file 1.S
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+LOOP 0000000A
+
+Symbol: LOOP
+   Definitions
+      At line 16 in file 1.S
+   Uses
+      At line 24 in file 1.S
+Comment: LOOP used once
+N1 00000028
+
+Symbol: N1
+   Definitions
+      At line 29 in file 1.S
+   Uses
+      At line 11 in file 1.S
+Comment: N1 used once
+N2 00000038
+
+Symbol: N2
+   Definitions
+      At line 30 in file 1.S
+   Uses
+      At line 12 in file 1.S
+Comment: N2 used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file 1.S
+   Uses
+      At line 5 in file 1.S
+      At line 8 in file 1.S
+
+STOP 00000026
+
+Symbol: STOP
+   Definitions
+      At line 27 in file 1.S
+   Uses
+      At line 28 in file 1.S
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file 1.S
+   Uses
+      None
+Comment: mycode unused
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RES 00000000
+
+Symbol: RES
+   Definitions
+      At line 32 in file 1.S
+   Uses
+      At line 13 in file 1.S
+Comment: RES used once
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 31 in file 1.S
+   Uses
+      None
+Comment: mydata unused
+2 symbols
+343 symbols in table

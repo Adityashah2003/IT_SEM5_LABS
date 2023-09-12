@@ -34,13 +34,6 @@ int main()
 		exit(0);
 	}
 	printf("\nSocket connected.");
-	/*struct hostent *host_entry;
-	int hostname;
-	char hostbuffer[256];
-	char *ipbuffer;
-	hostname=gethostname(hostbuffer,sizeof(hostbuffer));
-	host_entry=gethostbyname(hostbuffer);
-	ipbuffer = inet_ntoa(*((struct in_addr*)host_entry->h_addr_list[0]));*/
 	char ip[50];
 	strcpy(ip,"127.0.0.1");
 	sntb=send(s,ip,sizeof(ip),0);

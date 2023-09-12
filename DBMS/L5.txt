@@ -1,0 +1,209 @@
+create table student(
+regno varchar (10),
+name varchar (10),
+major varchar (10),
+bdate date,
+primary key (regno));
+
+create table course(
+course# int,
+cname varchar (10),
+dept varchar (10),
+primary key (course#));
+
+create table text(
+book_isbn int,
+booktitle varchar(10),
+publisher varchar(10),
+author varchar(10),
+primary key (book_isbn));
+
+create table enroll(
+regno varchar (10),
+course# int,
+primary key (regno,course#),
+foreign key (course#) references course(course#) on delete cascade,
+foreign key (regno) references student(regno) on delete cascade);
+
+create table book_adoption(
+course# int,
+sem int,
+book_isbn int,
+primary key (course#, book_isbn),
+foreign key (course#) references course(course#) on delete cascade,
+foreign key (book_isbn) references text(book_isbn) on delete cascade);
+
+`````````````````````````````Values````````````````````````````````````
+
+insert into student values ('ABC-001','Kushagra','IT','14-APR-03');
+insert into student values ('ABC-002','Keerat','EEE','13-JUNE-01');
+insert into student values ('ABC-003','Khalaq','CCE','15-AUG-04');
+insert into student values ('ABC-004','Deepesh','DSE','15-AUG-04');
+insert into student values ('ABC-005','Vinay','Mech','16-SEP-02');
+
+
+insert into course values ('1061','ES','ECE');
+insert into course values ('1088','DSM','EEE');
+insert into course values ('1042','Mech Eng.','Mech');
+insert into course values ('1040','DBS','ICT');
+insert into course values ('1052','S/W Eng.','CSE');
+
+
+insert into text values (1,'English','Amazon','S.C.Gupta');
+insert into text values (2,'ES Book','Kush Books','Elica');
+insert into text values (3,'DBS Book','Roli Books','Hector');
+insert into text values (4,'Mech book','Kush Books','Kushagra');
+insert into text values (5,'Intro S/W','Scholastic','Suzanne');
+
+
+insert into enroll values('ABC-001','1061');
+insert into enroll values('ABC-001','1088');
+insert into enroll values('ABC-003','1052');
+insert into enroll values('ABC-004','1040');
+insert into enroll values('ABC-005','1042');
+
+
+insert into book_adoption values (1061,1,1);
+insert into book_adoption values (1061,1,2);
+insert into book_adoption values (1088,2,1);
+insert into book_adoption values (1042,3,4);
+insert into book_adoption values (1040,4,3);
+insert into book_adoption values (1052,4,5);
+insert into book_adoption values (1052,4,1);
+
+````````````````````````L4 Q3 a `````````````````````````````
+select cname from course
+where course# in ( select course# from book_adoption
+group by course#
+having count(course#) > 1);
+
+CNAME
+----------
+ES
+S/W Eng.
+
+````````````````````````L4 Q3 b ``````````````````````````````
+SELECT DISTINCT C.DEPT
+FROM COURSE C
+WHERE NOT EXISTS (
+	SELECT *
+	FROM BOOK_ADOPTION BA
+	WHERE BA.COURSE# = C.COURSE#
+	AND BA.BOOK_ISBN NOT IN (
+		SELECT T.BOOK_ISBN
+		FROM TEXT T
+		WHERE T.PUBLISHER = 'Amazon'
+	)
+);
+
+DEPT
+----------
+EEE
+
+````````````````````````L4 Q3 c ``````````````````````````````
+select name, count(distinct dept) as number_of_departments
+from student natural join course natural join enroll
+where regno in (
+select regno from enroll
+group by regno having count (dept) >= 2)
+group by name;
+
+NAME       NUMBER_OF_DEPARTMENTS
+---------- ---------------------
+Kushagra                       2
+
+
+````````````````````````L4 Q3 d ``````````````````````````````
+select regno,name
+from student
+where regno not in ( select regno 
+		from enroll);
+
+REGNO      NAME
+---------- ----------
+ABC-002    Keerat
+
+````````````````````````L4 Q3 e```````````````````````````````
+select distinct booktitle
+from text natural join book_adoption natural join course
+where course# in (
+select course# from
+enroll);
+
+BOOKTITLE
+----------
+English
+ES Book
+Intro S/W
+DBS Book
+Mech book
+
+````````````````````````L4 Q3 f```````````````````````````````
+insert into text values (6,'English2','Amazon','S.C.Gupta');
+insert into book_adoption values (1088,2,6);
+
+SELECT BA.COURSE#
+FROM BOOK_ADOPTION BA
+WHERE BA.BOOK_ISBN IN (
+SELECT T.BOOK_ISBN
+FROM TEXT T
+WHERE T.PUBLISHER = 'Amazon'
+)
+GROUP BY BA.COURSE#
+HAVING COUNT(DISTINCT BA.BOOK_ISBN) >= 2;
+
+   COURSE#
+----------
+      1088
+
+
+````````````````````````L4 Q3 g```````````````````````````````
+
+select name, regno, count(regno) as num_of_books
+from student natural join enroll natural join book_adoption
+group by name, regno
+having count(regno)> all (
+select count(book_isbn)
+from book_adoption
+group by course#);
+
+NAME       REGNO      NUM_OF_BOOKS
+---------- ---------- ------------
+Kushagra   ABC-001               4
+
+
+````````````````````````L4 Q3 h```````````````````````````````
+
+select publisher, count(distinct book_isbn) as number_of_books_published
+from text
+group by publisher;
+
+PUBLISHER  NUMBER_OF_BOOKS_PUBLISHED
+---------- -------------------------
+Amazon                             2
+Kush Books                         2
+Roli Books                         1
+Scholastic                         1
+
+````````````````````````L4 Q3 i```````````````````````````````
+
+insert into course values ('1011','CPI','Humanities');
+insert into enroll values('ABC-005','1011');
+
+
+SELECT regno,name
+FROM enroll natural join student
+minus
+( SELECT regno,name
+FROM enroll natural join student
+where course# not in (
+SELECT course#
+FROM book_adoption)
+);
+
+
+REGNO      NAME
+---------- ----------
+ABC-001    Kushagra
+ABC-003    Khalaq
+ABC-004    Deepesh

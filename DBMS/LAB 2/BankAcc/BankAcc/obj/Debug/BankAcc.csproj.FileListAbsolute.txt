@@ -1,0 +1,24 @@
+D:\210911310\BankAcc\BankAcc\bin\Debug\BankAcc.exe.config
+D:\210911310\BankAcc\BankAcc\bin\Debug\BankAcc.exe
+D:\210911310\BankAcc\BankAcc\bin\Debug\BankAcc.pdb
+D:\210911310\BankAcc\BankAcc\obj\Debug\BankAcc.csprojResolveAssemblyReference.cache
+D:\210911310\BankAcc\BankAcc\obj\Debug\BankAcc.Form1.resources
+D:\210911310\BankAcc\BankAcc\obj\Debug\BankAcc.Properties.Resources.resources
+D:\210911310\BankAcc\BankAcc\obj\Debug\BankAcc.csproj.GenerateResource.Cache
+D:\210911310\BankAcc\BankAcc\obj\Debug\BankAcc.exe
+D:\210911310\BankAcc\BankAcc\obj\Debug\BankAcc.pdb
+D:\210911310\BankAcc\BankAcc\obj\Debug\BankAcc.Form2.resources
+D:\210911310\BankAcc\BankAcc\obj\Debug\BankAcc.Form3.resources
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\bin\Debug\BankAcc.exe.config
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\bin\Debug\BankAcc.exe
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\bin\Debug\BankAcc.pdb
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\obj\Debug\BankAcc.csproj.AssemblyReference.cache
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\obj\Debug\BankAcc.Form1.resources
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\obj\Debug\BankAcc.Form2.resources
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\obj\Debug\BankAcc.Form3.resources
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\obj\Debug\BankAcc.Properties.Resources.resources
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\obj\Debug\BankAcc.csproj.GenerateResource.cache
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\obj\Debug\BankAcc.csproj.CoreCompileInputs.cache
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\obj\Debug\BankAcc.exe
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\obj\Debug\BankAcc.pdb
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\BankAcc\BankAcc\obj\Debug\BankAcc.Form4.resources
