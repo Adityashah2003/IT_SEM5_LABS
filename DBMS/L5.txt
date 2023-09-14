@@ -1,86 +1,79 @@
-create table student(
-regno varchar (10),
-name varchar (10),
-major varchar (10),
-bdate date,
-primary key (regno));
+-- Create tables with primary and foreign keys
+CREATE TABLE STUDENT (
+    regno VARCHAR(20) PRIMARY KEY,
+    name VARCHAR(50),
+    major VARCHAR(20),
+    bdate DATE
+);
 
-create table course(
-course# int,
-cname varchar (10),
-dept varchar (10),
-primary key (course#));
+CREATE TABLE COURSE (
+    course# INT PRIMARY KEY,
+    cname VARCHAR(30),
+    dept VARCHAR(30)
+);
 
-create table text(
-book_isbn int,
-booktitle varchar(10),
-publisher varchar(10),
-author varchar(10),
-primary key (book_isbn));
+CREATE TABLE ENROLL (
+    regno VARCHAR(20),
+    course# INT,
+    PRIMARY KEY (regno, course#),
+    FOREIGN KEY (regno) REFERENCES STUDENT(regno),
+    FOREIGN KEY (course#) REFERENCES COURSE(course#)
+);
 
-create table enroll(
-regno varchar (10),
-course# int,
-primary key (regno,course#),
-foreign key (course#) references course(course#) on delete cascade,
-foreign key (regno) references student(regno) on delete cascade);
+CREATE TABLE BOOK_ADOPTION (
+    course# INT,
+    sem INT,
+    book_isbn INT,
+    PRIMARY KEY (course#, sem, book_isbn),
+    FOREIGN KEY (course#) REFERENCES COURSE(course#),
+    FOREIGN KEY (book_isbn) REFERENCES TEXT(book_isbn)
+);
 
-create table book_adoption(
-course# int,
-sem int,
-book_isbn int,
-primary key (course#, book_isbn),
-foreign key (course#) references course(course#) on delete cascade,
-foreign key (book_isbn) references text(book_isbn) on delete cascade);
+CREATE TABLE TEXT (
+    book_isbn INT PRIMARY KEY,
+    booktitle VARCHAR(50),
+    publisher VARCHAR(50),
+    author VARCHAR(50)
+);
 
-`````````````````````````````Values````````````````````````````````````
+-- Insert tuples into tables
+-- You can add more tuples as needed
+INSERT INTO STUDENT VALUES ('ABC-001', 'John Doe', 'Computer Science', '2000-01-15');
+INSERT INTO STUDENT VALUES ('ABC-002', 'Jane Smith', 'Mathematics', '1999-03-20');
+INSERT INTO STUDENT VALUES ('ABC-003', 'Bob Johnson', 'Physics', '2001-07-10');
+INSERT INTO STUDENT VALUES ('ABC-004', 'Alice Brown', 'Chemistry', '1998-05-05');
+INSERT INTO STUDENT VALUES ('ABC-005', 'Eva Wilson', 'Biology', '2002-11-30');
 
-insert into student values ('ABC-001','Kushagra','IT','14-APR-03');
-insert into student values ('ABC-002','Keerat','EEE','13-JUNE-01');
-insert into student values ('ABC-003','Khalaq','CCE','15-AUG-04');
-insert into student values ('ABC-004','Deepesh','DSE','15-AUG-04');
-insert into student values ('ABC-005','Vinay','Mech','16-SEP-02');
+INSERT INTO COURSE VALUES (101, 'Database Systems', 'Computer Science');
+INSERT INTO COURSE VALUES (102, 'Linear Algebra', 'Mathematics');
+INSERT INTO COURSE VALUES (103, 'Quantum Mechanics', 'Physics');
+INSERT INTO COURSE VALUES (104, 'Organic Chemistry', 'Chemistry');
+INSERT INTO COURSE VALUES (105, 'Genetics', 'Biology');
 
+INSERT INTO ENROLL VALUES ('ABC-001', 101);
+INSERT INTO ENROLL VALUES ('ABC-001', 102);
+INSERT INTO ENROLL VALUES ('ABC-002', 102);
+INSERT INTO ENROLL VALUES ('ABC-003', 103);
+INSERT INTO ENROLL VALUES ('ABC-004', 104);
 
-insert into course values ('1061','ES','ECE');
-insert into course values ('1088','DSM','EEE');
-insert into course values ('1042','Mech Eng.','Mech');
-insert into course values ('1040','DBS','ICT');
-insert into course values ('1052','S/W Eng.','CSE');
+INSERT INTO TEXT VALUES (1, 'Database Management', 'Pearson', 'David Kroenke');
+INSERT INTO TEXT VALUES (2, 'Linear Algebra and Its Applications', 'Wiley', 'David C. Lay');
+INSERT INTO TEXT VALUES (3, 'Principles of Quantum Mechanics', 'Springer', 'R. Shankar');
+INSERT INTO TEXT VALUES (4, 'Organic Chemistry', 'Pearson', 'Paula Y. Bruice');
+INSERT INTO TEXT VALUES (5, 'Genetics: From Genes to Genomes', 'McGraw-Hill', 'Leland Hartwell');
 
+INSERT INTO BOOK_ADOPTION VALUES (101, 1, 1);
+INSERT INTO BOOK_ADOPTION VALUES (102, 1, 2);
+INSERT INTO BOOK_ADOPTION VALUES (103, 1, 3);
+INSERT INTO BOOK_ADOPTION VALUES (104, 1, 4);
+INSERT INTO BOOK_ADOPTION VALUES (105, 1, 5);
 
-insert into text values (1,'English','Amazon','S.C.Gupta');
-insert into text values (2,'ES Book','Kush Books','Elica');
-insert into text values (3,'DBS Book','Roli Books','Hector');
-insert into text values (4,'Mech book','Kush Books','Kushagra');
-insert into text values (5,'Intro S/W','Scholastic','Suzanne');
-
-
-insert into enroll values('ABC-001','1061');
-insert into enroll values('ABC-001','1088');
-insert into enroll values('ABC-003','1052');
-insert into enroll values('ABC-004','1040');
-insert into enroll values('ABC-005','1042');
-
-
-insert into book_adoption values (1061,1,1);
-insert into book_adoption values (1061,1,2);
-insert into book_adoption values (1088,2,1);
-insert into book_adoption values (1042,3,4);
-insert into book_adoption values (1040,4,3);
-insert into book_adoption values (1052,4,5);
-insert into book_adoption values (1052,4,1);
 
 ````````````````````````L4 Q3 a `````````````````````````````
 select cname from course
 where course# in ( select course# from book_adoption
 group by course#
 having count(course#) > 1);
-
-CNAME
-----------
-ES
-S/W Eng.
 
 ````````````````````````L4 Q3 b ``````````````````````````````
 SELECT DISTINCT C.DEPT
@@ -96,10 +89,6 @@ WHERE NOT EXISTS (
 	)
 );
 
-DEPT
-----------
-EEE
-
 ````````````````````````L4 Q3 c ``````````````````````````````
 select name, count(distinct dept) as number_of_departments
 from student natural join course natural join enroll
@@ -108,20 +97,11 @@ select regno from enroll
 group by regno having count (dept) >= 2)
 group by name;
 
-NAME       NUMBER_OF_DEPARTMENTS
----------- ---------------------
-Kushagra                       2
-
-
 ````````````````````````L4 Q3 d ``````````````````````````````
 select regno,name
 from student
 where regno not in ( select regno 
 		from enroll);
-
-REGNO      NAME
----------- ----------
-ABC-002    Keerat
 
 ````````````````````````L4 Q3 e```````````````````````````````
 select distinct booktitle
@@ -129,14 +109,6 @@ from text natural join book_adoption natural join course
 where course# in (
 select course# from
 enroll);
-
-BOOKTITLE
-----------
-English
-ES Book
-Intro S/W
-DBS Book
-Mech book
 
 ````````````````````````L4 Q3 f```````````````````````````````
 insert into text values (6,'English2','Amazon','S.C.Gupta');
@@ -152,11 +124,6 @@ WHERE T.PUBLISHER = 'Amazon'
 GROUP BY BA.COURSE#
 HAVING COUNT(DISTINCT BA.BOOK_ISBN) >= 2;
 
-   COURSE#
-----------
-      1088
-
-
 ````````````````````````L4 Q3 g```````````````````````````````
 
 select name, regno, count(regno) as num_of_books
@@ -167,23 +134,12 @@ select count(book_isbn)
 from book_adoption
 group by course#);
 
-NAME       REGNO      NUM_OF_BOOKS
----------- ---------- ------------
-Kushagra   ABC-001               4
-
-
 ````````````````````````L4 Q3 h```````````````````````````````
 
 select publisher, count(distinct book_isbn) as number_of_books_published
 from text
 group by publisher;
 
-PUBLISHER  NUMBER_OF_BOOKS_PUBLISHED
----------- -------------------------
-Amazon                             2
-Kush Books                         2
-Roli Books                         1
-Scholastic                         1
 
 ````````````````````````L4 Q3 i```````````````````````````````
 
@@ -200,10 +156,3 @@ where course# not in (
 SELECT course#
 FROM book_adoption)
 );
-
-
-REGNO      NAME
----------- ----------
-ABC-001    Kushagra
-ABC-003    Khalaq
-ABC-004    Deepesh

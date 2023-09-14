@@ -56,5 +56,9 @@ namespace BankAcc
             Form4 f4 = new Form4(curr_bal);
             f4.Show();
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

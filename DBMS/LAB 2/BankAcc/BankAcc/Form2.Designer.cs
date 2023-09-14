@@ -109,9 +109,11 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.label7.Location = new System.Drawing.Point(113, 246);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(162, 25);
+            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label7.Size = new System.Drawing.Size(125, 25);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Last Access date";
+            this.label7.Text = "Transactions";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 

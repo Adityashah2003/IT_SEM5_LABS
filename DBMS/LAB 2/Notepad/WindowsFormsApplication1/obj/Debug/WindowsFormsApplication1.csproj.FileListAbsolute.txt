@@ -7,3 +7,13 @@ D:\210911238\LAB-1\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\W
 D:\210911238\LAB-1\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 D:\210911238\LAB-1\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 D:\210911238\LAB-1\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\Notepad\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\Notepad\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\Notepad\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\Notepad\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.AssemblyReference.cache
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\Notepad\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\Notepad\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\Notepad\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.cache
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\Notepad\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\Notepad\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Aditya\Documents\GitHub\IT_SEM5_LABS\DBMS\LAB 2\Notepad\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
