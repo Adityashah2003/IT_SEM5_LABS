@@ -1,3 +1,4 @@
+;bcd to hex 	
 	AREA RESET, DATA, READONLY
 	EXPORT __Vectors
 __Vectors 
@@ -8,6 +9,7 @@ __Vectors
 	ENTRY
 	EXPORT Reset_Handler
 Reset_Handler
+
 	LDR R0,=N1
 	LDR R1,[R0]
 	AND R2,R1,#0X0F

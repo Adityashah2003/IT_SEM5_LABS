@@ -1,0 +1,31 @@
+create table person2( pid varchar(10) , ln varchar(10), fn varchar(10), address varchar(10), city varchar(10), primary key(pid));
+
+insert into person2 values('10000' , 'Sad', 'Jyoti', 'H-101', 'guwahati');
+insert into person2 values('10001' , 'Mad', 'kajal', 'H-102', 'banglore');
+insert into person2 values('10002' , 'Shah', 'Adi', 'H-103', 'Pune');
+insert into person2 values('10003' , 'a', 'arnav', 'H-104', 'banglore');
+insert into person2 values('10004' , 'kola', 'Soham', 'H-105', 'hyderabad');
+
+commit;
+
+update person2
+set address='H-100'
+where address='H-101';
+
+update person2
+set address='H-106'
+where address='H-105';
+
+savepoint sp1;
+
+update person2
+set ln='shandilya'
+where ln='Sad';
+
+update person2
+set ln='madhusson'
+where ln='Mad';
+
+rollback;
+
+rollback to sp1;

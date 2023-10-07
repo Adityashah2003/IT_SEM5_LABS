@@ -1,0 +1,21 @@
+D:\210911310\lab7\q2\q2\bin\x64\Debug\q2.exe.config
+D:\210911310\lab7\q2\q2\obj\x64\Debug\q2.Form1.resources
+D:\210911310\lab7\q2\q2\obj\x64\Debug\q2.Properties.Resources.resources
+D:\210911310\lab7\q2\q2\obj\x64\Debug\q2.csproj.GenerateResource.Cache
+D:\210911310\lab7\q2\q2\bin\x64\Debug\q2.exe
+D:\210911310\lab7\q2\q2\bin\x64\Debug\q2.pdb
+D:\210911310\lab7\q2\q2\bin\x64\Debug\Oracle.DataAccess.dll
+D:\210911310\lab7\q2\q2\bin\x64\Debug\Oracle.ManagedDataAccess.dll
+D:\210911310\lab7\q2\q2\obj\x64\Debug\q2.exe
+D:\210911310\lab7\q2\q2\obj\x64\Debug\q2.pdb
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\q2\q2\bin\x64\Debug\q2.exe.config
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\q2\q2\bin\x64\Debug\q2.exe
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\q2\q2\bin\x64\Debug\q2.pdb
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\q2\q2\obj\x64\Debug\q2.csproj.AssemblyReference.cache
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\q2\q2\obj\x64\Debug\q2.Form1.resources
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\q2\q2\obj\x64\Debug\q2.Properties.Resources.resources
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\q2\q2\obj\x64\Debug\q2.csproj.GenerateResource.cache
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\q2\q2\obj\x64\Debug\q2.csproj.CoreCompileInputs.cache
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\q2\q2\obj\x64\Debug\q2.csproj.CopyComplete
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\q2\q2\obj\x64\Debug\q2.exe
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\q2\q2\obj\x64\Debug\q2.pdb
