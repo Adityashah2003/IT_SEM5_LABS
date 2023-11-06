@@ -232,7 +232,8 @@ int main()
 		}
 		break;
 
-		case 3:printf("\nOrdering file..\n");
+		case 3:
+		printf("\nOrdering file..\n");
 		
     FILE * ptrFileLog = NULL;
     FILE * ptrSummary = NULL;
