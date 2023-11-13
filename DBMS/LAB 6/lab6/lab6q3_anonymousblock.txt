@@ -1,0 +1,8 @@
+SET SERVEROUTPUT ON
+DECLARE
+num integer;
+BEGIN
+num:= total_number_of_accidents(2018);
+dbms_output.put_line('Number of accidents involved are: '||num);
+end;
+/

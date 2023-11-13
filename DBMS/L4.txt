@@ -2,7 +2,6 @@ select count(distinct driver_id)
 from Participated natural join Accident
 where extract (year from accd_date) = '2008';
 
-
 insert into Car values ('60000','FSUK',2008);
 select count(*) from car natural join Participated where model='FSUK';
 
@@ -11,7 +10,9 @@ from person natural join participated
 group by name
 order by Total_damage desc;
 
-select name. count(reportno)
+select name, count(reportno)
 from person natural join participated
 group by name
 having count(reportno)>2;
+
+SELECT PERSON.NAME FROM PERSON MINUS (SELECT DISTINCT PERSON.NAME FROM PERSON,PARTICIPATED WHERE PERSON.DRIVER_ID = PARTICIPATED.DRIVER_ID);

@@ -1,19 +1,19 @@
 -- Create tables with primary and foreign keys
 CREATE TABLE STUDENT (
-    regno VARCHAR(20) PRIMARY KEY,
-    name VARCHAR(50),
-    major VARCHAR(20),
+    regno VARCHAR(10) PRIMARY KEY,
+    name VARCHAR(15),
+    major VARCHAR(10),
     bdate DATE
 );
 
 CREATE TABLE COURSE (
     course# INT PRIMARY KEY,
-    cname VARCHAR(30),
-    dept VARCHAR(30)
+    cname VARCHAR(10),
+    dept VARCHAR(10)
 );
 
 CREATE TABLE ENROLL (
-    regno VARCHAR(20),
+    regno VARCHAR(10),
     course# INT,
     PRIMARY KEY (regno, course#),
     FOREIGN KEY (regno) REFERENCES STUDENT(regno),
@@ -31,23 +31,23 @@ CREATE TABLE BOOK_ADOPTION (
 
 CREATE TABLE TEXT (
     book_isbn INT PRIMARY KEY,
-    booktitle VARCHAR(50),
-    publisher VARCHAR(50),
-    author VARCHAR(50)
+    booktitle VARCHAR(10),
+    publisher VARCHAR(10),
+    author VARCHAR(10)
 );
 
 -- Insert tuples into tables
 -- You can add more tuples as needed
-INSERT INTO STUDENT VALUES ('ABC-001', 'John Doe', 'Computer Science', '2000-01-15');
-INSERT INTO STUDENT VALUES ('ABC-002', 'Jane Smith', 'Mathematics', '1999-03-20');
-INSERT INTO STUDENT VALUES ('ABC-003', 'Bob Johnson', 'Physics', '2001-07-10');
-INSERT INTO STUDENT VALUES ('ABC-004', 'Alice Brown', 'Chemistry', '1998-05-05');
-INSERT INTO STUDENT VALUES ('ABC-005', 'Eva Wilson', 'Biology', '2002-11-30');
+INSERT INTO STUDENT VALUES ('ABC-001', 'John', 'Computer', '2-FEB-2003');
+INSERT INTO STUDENT VALUES ('ABC-002', 'Jane', 'Math', '5-APR-2003');
+INSERT INTO STUDENT VALUES ('ABC-003', 'Bob', 'Physics', '5-FEB-2000');
+INSERT INTO STUDENT VALUES ('ABC-004', 'Alice', 'Chemistry', '5-FEB-2000');
+INSERT INTO STUDENT VALUES ('ABC-005', 'Eva', 'Biology', '24-AUG-2003');
 
-INSERT INTO COURSE VALUES (101, 'Database Systems', 'Computer Science');
-INSERT INTO COURSE VALUES (102, 'Linear Algebra', 'Mathematics');
-INSERT INTO COURSE VALUES (103, 'Quantum Mechanics', 'Physics');
-INSERT INTO COURSE VALUES (104, 'Organic Chemistry', 'Chemistry');
+INSERT INTO COURSE VALUES (101, 'Database', 'Computer');
+INSERT INTO COURSE VALUES (102, 'Linear', 'Math');
+INSERT INTO COURSE VALUES (103, 'Quantum', 'Physics');
+INSERT INTO COURSE VALUES (104, 'Organic', 'Chemistry');
 INSERT INTO COURSE VALUES (105, 'Genetics', 'Biology');
 
 INSERT INTO ENROLL VALUES ('ABC-001', 101);
@@ -56,11 +56,11 @@ INSERT INTO ENROLL VALUES ('ABC-002', 102);
 INSERT INTO ENROLL VALUES ('ABC-003', 103);
 INSERT INTO ENROLL VALUES ('ABC-004', 104);
 
-INSERT INTO TEXT VALUES (1, 'Database Management', 'Pearson', 'David Kroenke');
-INSERT INTO TEXT VALUES (2, 'Linear Algebra and Its Applications', 'Wiley', 'David C. Lay');
-INSERT INTO TEXT VALUES (3, 'Principles of Quantum Mechanics', 'Springer', 'R. Shankar');
-INSERT INTO TEXT VALUES (4, 'Organic Chemistry', 'Pearson', 'Paula Y. Bruice');
-INSERT INTO TEXT VALUES (5, 'Genetics: From Genes to Genomes', 'McGraw-Hill', 'Leland Hartwell');
+INSERT INTO TEXT VALUES (1, 'Database ', 'Pearson', 'David ');
+INSERT INTO TEXT VALUES (2, 'Linear', 'Wiley', 'David');
+INSERT INTO TEXT VALUES (3, 'Quantum M', 'Springer', 'R. Shar');
+INSERT INTO TEXT VALUES (4, 'Chemistry', 'Pearson', 'Paula');
+INSERT INTO TEXT VALUES (5, 'Genetics', 'McGraw', 'Leland ');
 
 INSERT INTO BOOK_ADOPTION VALUES (101, 1, 1);
 INSERT INTO BOOK_ADOPTION VALUES (102, 1, 2);
@@ -85,7 +85,7 @@ WHERE NOT EXISTS (
 	AND BA.BOOK_ISBN NOT IN (
 		SELECT T.BOOK_ISBN
 		FROM TEXT T
-		WHERE T.PUBLISHER = 'Amazon'
+		WHERE T.PUBLISHER = 'Pearson'
 	)
 );
 
@@ -111,15 +111,13 @@ select course# from
 enroll);
 
 ````````````````````````L4 Q3 f```````````````````````````````
-insert into text values (6,'English2','Amazon','S.C.Gupta');
-insert into book_adoption values (1088,2,6);
 
 SELECT BA.COURSE#
 FROM BOOK_ADOPTION BA
 WHERE BA.BOOK_ISBN IN (
 SELECT T.BOOK_ISBN
 FROM TEXT T
-WHERE T.PUBLISHER = 'Amazon'
+WHERE T.PUBLISHER = 'Pearson'
 )
 GROUP BY BA.COURSE#
 HAVING COUNT(DISTINCT BA.BOOK_ISBN) >= 2;
@@ -142,10 +140,6 @@ group by publisher;
 
 
 ````````````````````````L4 Q3 i```````````````````````````````
-
-insert into course values ('1011','CPI','Humanities');
-insert into enroll values('ABC-005','1011');
-
 
 SELECT regno,name
 FROM enroll natural join student

@@ -1,0 +1,179 @@
+Use Moviedb
+
+db.createCollection("Actor");
+db.createCollection("Director");
+db.createCollection("Movies");
+db.createCollection("Movie_Cast");
+db.createCollection("Rating"); 
+
+
+db.Actor.insertMany([
+  { Act_id: 1, Act_Name: "Tom Hanks", Act_Gender: "Male" },
+  { Act_id: 2, Act_Name: "Meryl Streep", Act_Gender: "Female" },
+  { Act_id: 3, Act_Name: "Brad Pitt", Act_Gender: "Male" },
+  { Act_id: 4, Act_Name: "Jennifer Lawrence", Act_Gender: "Female" },
+  { Act_id: 5, Act_Name: "Leonardo DiCaprio", Act_Gender: "Male" }
+]);
+
+db.Director.insertMany([
+  { Dir_id: 1, Dir_Name: "Alfred Hitchcock", Dir_Phone: "123-456-7890" },
+  { Dir_id: 2, Dir_Name: "Steven Spielberg", Dir_Phone: "987-654-3210" }
+]);
+
+db.Movies.insertMany([
+  { Mov_id: 1, Mov_Title: "Forrest Gump", Mov_Year: 1994, Mov_Lang: "English", Dir_id: 1 },
+  { Mov_id: 2, Mov_Title: "The Post", Mov_Year: 2017, Mov_Lang: "English", Dir_id: 2 },
+  { Mov_id: 3, Mov_Title: "Fight Club", Mov_Year: 1999, Mov_Lang: "English", Dir_id: 1 },
+  { Mov_id: 4, Mov_Title: "Silver Linings Playbook", Mov_Year: 2012, Mov_Lang: "English", Dir_id: 2 },
+  { Mov_id: 5, Mov_Title: "Titanic", Mov_Year: 1997, Mov_Lang: "English", Dir_id: 1 }
+]);
+
+db.Movie_Cast.insertMany([
+  { Act_id: 1, Mov_id: 1, Role: "Lead" },
+  { Act_id: 2, Mov_id: 1, Role: "Supporting" },
+  { Act_id: 1, Mov_id: 2, Role: "Lead" },
+  { Act_id: 3, Mov_id: 3, Role: "Lead" },
+  { Act_id: 4, Mov_id: 4, Role: "Lead" },
+  { Act_id: 5, Mov_id: 5, Role: "Lead" }
+]);
+
+db.Rating.insertMany([
+  { Mov_id: 1, Rev_Stars: 4 },
+  { Mov_id: 2, Rev_Stars: 3 },
+  { Mov_id: 3, Rev_Stars: 5 },
+  { Mov_id: 4, Rev_Stars: 4 },
+  { Mov_id: 5, Rev_Stars: 2 }
+]);
+
+1.
+db.Movies.aggregate([
+    {
+        $lookup: {
+            from: "Director",
+            localField: "Dir_id",
+            foreignField: "Dir_id",
+            as: "DirectorInfo"
+        }
+    },
+    {
+        $match: {
+            "DirectorInfo.Dir_Name": "Alfred Hitchcock"
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            Mov_Title: 1
+        }
+    }
+]);
+
+{ "Mov_Title" : "Forrest Gump" }
+{ "Mov_Title" : "Fight Club" }
+{ "Mov_Title" : "Titanic" }
+
+
+2.
+db.Movies.aggregate([
+  {
+    $lookup: {
+      from: "Movie_Cast",
+      localField: "Mov_id",
+      foreignField: "Mov_id",
+      as: "cast"
+    }
+  },
+  {
+    $unwind: "$cast"
+  },
+  {
+    $group: {
+      _id: "$Mov_id",
+      Mov_Title: { $first: "$Mov_Title" },
+      ActorCount: { $sum: 1 }
+    }
+  },
+  {
+    $match: {
+      ActorCount: { $gte: 2 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      Mov_Title: 1
+    }
+  }
+]);
+
+{ "Mov_Title" : "Forrest Gump" }
+
+3.
+db.Actor.aggregate([
+  {
+    $lookup: {
+      from: "Movie_Cast",
+      localField: "Act_id",
+      foreignField: "Act_id",
+      as: "movieRoles"
+    }
+  },
+  {
+    $unwind: "$movieRoles"
+  },
+  {
+    $lookup: {
+      from: "Movies",
+      localField: "movieRoles.Mov_id",
+      foreignField: "Mov_id",
+      as: "Movies"
+    }
+  },
+  {
+    $unwind: "$Movies"
+  },
+  {
+    $group: {
+      _id: "$Act_id",
+      Act_Name: { $first: "$Act_Name" },
+      movieYears: { $push: "$Movies.Mov_Year" }
+    }
+  },
+  {
+    $match: {
+      $and: [
+        { "movieYears": { $lt: 2000 } },
+        { "movieYears": { $gt: 2015 } }
+      ]
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      Act_Name: 1
+    }
+  }
+]);
+
+{ "Act_Name" : "Tom Hanks" }
+
+
+4.
+db.Movies.updateMany(
+  { Dir_id: 2 }, 
+  { $set: { Rev_Stars: 5 } }
+);
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.Movies.find()
+{ "_id" : ObjectId("653a2c3d556c42d81f5f90b9"), "Mov_id" : 1, "Mov_Title" : "Forrest Gump", "Mov_Year" : 1994, "Mov_Lang" : "English", "Dir_id" : 1 }
+{ "_id" : ObjectId("653a2c3d556c42d81f5f90ba"), "Mov_id" : 2, "Mov_Title" : "The Post", "Mov_Year" : 2017, "Mov_Lang" : "English", "Dir_id" : 2, "Rev_Stars" : 5 }
+{ "_id" : ObjectId("653a2c3d556c42d81f5f90bb"), "Mov_id" : 3, "Mov_Title" : "Fight Club", "Mov_Year" : 1999, "Mov_Lang" : "English", "Dir_id" : 1 }
+{ "_id" : ObjectId("653a2c3d556c42d81f5f90bc"), "Mov_id" : 4, "Mov_Title" : "Silver Linings Playbook", "Mov_Year" : 2012, "Mov_Lang" : "English", "Dir_id" : 2, "Rev_Stars" : 5 }
+{ "_id" : ObjectId("653a2c3d556c42d81f5f90bd"), "Mov_id" : 5, "Mov_Title" : "Titanic", "Mov_Year" : 1997, "Mov_Lang" : "English", "Dir_id" : 1 }
+
+5. db.Rating.find().sort({ Rev_Stars: 1 })
+{ "_id" : ObjectId("653a2c66556c42d81f5f90c8"), "Mov_id" : 5, "Rev_Stars" : 2 }
+{ "_id" : ObjectId("653a2c66556c42d81f5f90c5"), "Mov_id" : 2, "Rev_Stars" : 3 }
+{ "_id" : ObjectId("653a2c66556c42d81f5f90c4"), "Mov_id" : 1, "Rev_Stars" : 4 }
+{ "_id" : ObjectId("653a2c66556c42d81f5f90c7"), "Mov_id" : 4, "Rev_Stars" : 4 }
+{ "_id" : ObjectId("653a2c66556c42d81f5f90c6"), "Mov_id" : 3, "Rev_Stars" : 5 }

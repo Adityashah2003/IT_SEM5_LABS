@@ -69,10 +69,10 @@ namespace lab7
         {
         }
         private void button4_Click(object sender, EventArgs e)
-        {
+        {   
             ConnectDB();
             OracleCommand command1 = conn.CreateCommand();
-            command1.CommandText = "delete from PERSON where driver_id= '" + textBox2.Text + "'";
+            command1.CommandText = "delete from Accident where extract(year from accd_date)= '" + textBox6.Text + "'";
             command1.CommandType = CommandType.Text;
             command1.ExecuteNonQuery();
             MessageBox.Show("Deleted");
@@ -83,7 +83,7 @@ namespace lab7
         {
             ConnectDB();
             OracleCommand command1 = conn.CreateCommand();
-            command1.CommandText = "update PERSON set address='" +textBox3.Text +"'" + "where driver_id= '" + textBox2.Text + "'";
+            command1.CommandText = "update PERSON set DAMAGE_AMOUNT='" + textBox4.Text + "'" + "where driver_id= '" + textBox5.Text + "'";
             command1.CommandType = CommandType.Text;
             command1.ExecuteNonQuery();
             MessageBox.Show("Updated");
@@ -92,6 +92,35 @@ namespace lab7
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ConnectDB();
+            OracleCommand command1 = conn.CreateCommand();
+            command1.CommandText = "alter table Person drop column" + textBox7.Text;
+            command1.CommandType = CommandType.Text;
+            command1.ExecuteNonQuery();
+            MessageBox.Show("Added");
+            command1.Dispose();
+            conn.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ConnectDB();
+            OracleCommand command1 = conn.CreateCommand();
+            command1.CommandText = "alter table Person add" + textBox7.Text + "varchar(10)";
+            command1.CommandType = CommandType.Text;
+            command1.ExecuteNonQuery();
+            MessageBox.Show("Added");
+            command1.Dispose();
+            conn.Close();
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
         {
 
         }

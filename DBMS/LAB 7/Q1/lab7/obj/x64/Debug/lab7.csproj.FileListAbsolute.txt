@@ -9,14 +9,14 @@ D:\210911310\lab7\lab7\lab7\obj\x64\Debug\lab7.Properties.Resources.resources
 D:\210911310\lab7\lab7\lab7\obj\x64\Debug\lab7.csproj.GenerateResource.Cache
 D:\210911310\lab7\lab7\lab7\obj\x64\Debug\lab7.exe
 D:\210911310\lab7\lab7\lab7\obj\x64\Debug\lab7.pdb
-D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\lab7\lab7\bin\x64\Debug\lab7.exe.config
-D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\lab7\lab7\bin\x64\Debug\lab7.exe
-D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\lab7\lab7\bin\x64\Debug\lab7.pdb
-D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\lab7\lab7\obj\x64\Debug\lab7.csproj.AssemblyReference.cache
-D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\lab7\lab7\obj\x64\Debug\lab7.Form1.resources
-D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\lab7\lab7\obj\x64\Debug\lab7.Properties.Resources.resources
-D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\lab7\lab7\obj\x64\Debug\lab7.csproj.GenerateResource.cache
-D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\lab7\lab7\obj\x64\Debug\lab7.csproj.CoreCompileInputs.cache
-D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\lab7\lab7\obj\x64\Debug\lab7.csproj.CopyComplete
-D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\lab7\lab7\obj\x64\Debug\lab7.exe
-D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\lab7\lab7\obj\x64\Debug\lab7.pdb
+D:\210911310\lab7\q1\lab7\bin\x64\Debug\lab7.exe.config
+D:\210911310\lab7\q1\lab7\obj\x64\Debug\lab7.exe
+D:\210911310\lab7\q1\lab7\obj\x64\Debug\lab7.pdb
+D:\210911310\lab7\q1\lab7\bin\x64\Debug\lab7.exe
+D:\210911310\lab7\q1\lab7\bin\x64\Debug\lab7.pdb
+D:\210911310\lab7\q1\lab7\bin\x64\Debug\Oracle.DataAccess.dll
+D:\210911310\lab7\q1\lab7\bin\x64\Debug\Oracle.ManagedDataAccess.dll
+D:\210911310\lab7\q1\lab7\obj\x64\Debug\lab7.csprojResolveAssemblyReference.cache
+D:\210911310\lab7\q1\lab7\obj\x64\Debug\lab7.Form1.resources
+D:\210911310\lab7\q1\lab7\obj\x64\Debug\lab7.Properties.Resources.resources
+D:\210911310\lab7\q1\lab7\obj\x64\Debug\lab7.csproj.GenerateResource.Cache

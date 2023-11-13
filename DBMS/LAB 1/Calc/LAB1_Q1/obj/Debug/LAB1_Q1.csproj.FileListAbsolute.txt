@@ -18,3 +18,18 @@ C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\
 C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.csproj.CoreCompileInputs.cache
 C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.exe
 C:\Users\Aditya\OneDrive - Manipal Academy of Higher Education\Desktop\MIT\DBMS\Books + Lab\Lab\LAB1_Q1\LAB1_Q1\obj\Debug\LAB1_Q1.pdb
+D:\210911310\LAB 1\Calc\LAB1_Q1\bin\Debug\LAB1_Q1.exe.config
+D:\210911310\LAB 1\Calc\LAB1_Q1\obj\Debug\LAB1_Q1.exe
+D:\210911310\LAB 1\Calc\LAB1_Q1\obj\Debug\LAB1_Q1.pdb
+D:\210911310\LAB 1\Calc\LAB1_Q1\bin\Debug\LAB1_Q1.exe
+D:\210911310\LAB 1\Calc\LAB1_Q1\bin\Debug\LAB1_Q1.pdb
+D:\210911310\LAB 1\Calc\LAB1_Q1\bin\Debug\mscorlib.dll
+D:\210911310\LAB 1\Calc\LAB1_Q1\bin\Debug\normidna.nlp
+D:\210911310\LAB 1\Calc\LAB1_Q1\bin\Debug\normnfc.nlp
+D:\210911310\LAB 1\Calc\LAB1_Q1\bin\Debug\normnfd.nlp
+D:\210911310\LAB 1\Calc\LAB1_Q1\bin\Debug\normnfkc.nlp
+D:\210911310\LAB 1\Calc\LAB1_Q1\bin\Debug\normnfkd.nlp
+D:\210911310\LAB 1\Calc\LAB1_Q1\obj\Debug\LAB1_Q1.csprojResolveAssemblyReference.cache
+D:\210911310\LAB 1\Calc\LAB1_Q1\obj\Debug\LAB1_Q1.Form1.resources
+D:\210911310\LAB 1\Calc\LAB1_Q1\obj\Debug\LAB1_Q1.Properties.Resources.resources
+D:\210911310\LAB 1\Calc\LAB1_Q1\obj\Debug\LAB1_Q1.csproj.GenerateResource.Cache

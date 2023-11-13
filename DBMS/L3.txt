@@ -281,16 +281,6 @@ Commit complete.
 
 SQL> update Participated
   2  set damage_amount=25000
-  3  where reportno==00001
-  4  ;
-where reportno==00001
-               *
-ERROR at line 3:
-ORA-00936: missing expression
-
-
-SQL> update Participated
-  2  set damage_amount=25000
   3  where reportno=00001;
 
 1 row updated.

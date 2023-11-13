@@ -1,0 +1,10 @@
+SET SERVEROUTPUT ON
+CREATE OR REPLACE PROCEDURE display_damage(driverid varchar(20), year int) is
+total_damage_caused number;
+BEGIN
+select damage_amount into total_damage_caused
+from participated natural join accident
+where driver_id# = driverid AND extract(year from accd_date) = year;
+dbms_output.put_line('Damage caused by the driver is '||total_damage_caused);
+end;
+/

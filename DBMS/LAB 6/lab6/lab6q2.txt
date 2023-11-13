@@ -1,0 +1,17 @@
+CREATE OR REPLACE TRIGGER on_accident
+AFTER INSERT OR UPDATE on participated
+For each row
+	declare
+	name person.name%type;
+	id person.driver_id#%type;
+	addr person.address%type;
+BEGIN
+	if INSERTING then
+		SELECT driver_id#, name, address
+		INTO id,name,addr
+		FROM person
+		WHERE driver_id#='DL4023';
+		dbms_output.put_line('name : '||name||' driver id : '||id||' address : '||addr);
+	END if;
+END;
+/

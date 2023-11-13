@@ -1,0 +1,10 @@
+CREATE OR REPLACE FUNCTION total_number_of_accidents (year int)
+return integer is
+	num integer;
+BEGIN
+	select count(*) into num
+	from accident
+	where extract(year from accd_date) = year;
+	return num;
+end;
+/
