@@ -1,0 +1,11 @@
+D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Oracle.DataAccess.dll
+D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
