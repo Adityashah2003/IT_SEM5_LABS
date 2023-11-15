@@ -56,7 +56,7 @@ namespace q2
             ConnectDB();
             OracleCommand comm = new OracleCommand();
             comm.Connection = conn;
-            comm.CommandText = "select count(*) from car natural join Participated where model='XXXXX'";
+            comm.CommandText = "select count(*) from car natural join Participated where model='FSUK'";
             OracleDataReader read = comm.ExecuteReader();
             while (read.Read())
             {
@@ -72,7 +72,7 @@ namespace q2
         {
             
         }
-        /*private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
     
                 ConnectDB();
@@ -86,8 +86,8 @@ namespace q2
                 da.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
           
-        }*/
-        /*private void button4_Click(object sender, EventArgs e)
+        }
+        private void button4_Click(object sender, EventArgs e)
         {
             ConnectDB();
             OracleCommand comm1 = new OracleCommand();
@@ -113,7 +113,7 @@ namespace q2
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
-        }*/
+        }
 
         
     }

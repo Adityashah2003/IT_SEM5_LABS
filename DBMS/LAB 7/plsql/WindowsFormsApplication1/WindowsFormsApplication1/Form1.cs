@@ -41,10 +41,6 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             ConnectDB();
-            OracleCommand command1 = conn.CreateCommand();
-            command1.CommandText = "@D:/210911310/Lab 6/first.sql";
-            command1.CommandType = CommandType.Text;
-            command1.Dispose();
             OracleCommand command2 = conn.CreateCommand();
             command2.CommandText = "select accd_fn('2023') from Accident";
             command2.CommandType = CommandType.Text;
@@ -76,6 +72,5 @@ namespace WindowsFormsApplication1
             }
             //execute damage('12345','2003');
         }
-
     }
 }

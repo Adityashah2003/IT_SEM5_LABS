@@ -9,3 +9,14 @@ D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\bin\De
 D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Oracle.ManagedDataAccess.dll
 D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 D:\210911310\lab7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.AssemblyReference.cache
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.cache
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CopyComplete
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\GitHub\IT_SEM5_LABS\DBMS\LAB 7\plsql\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
