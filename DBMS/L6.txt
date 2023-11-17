@@ -39,18 +39,23 @@ ACCD_FN('2023')
 7 rows selected.
 
 4)
-set serveroutput on
-create or replace procedure damage(did_in in varchar2,year_in in varchar2)
-as tot_dmg_amt integer;
-begin
-  select sum(damage_amount) into tot_dmg_amt
-  from participated
-  where reportno in (select reportno
-  from accident
-  where extract(year from accd_date)=year_in)
-  and driver_id=did_in;
- DBMS_OUTPUT.PUT_LINE(tot_dmg_amt);
-end;
+CREATE OR REPLACE PROCEDURE damage(
+    did_in IN NUMBER,
+    year_in IN NUMBER,
+    cout OUT NUMBER
+) AS
+BEGIN
+    SELECT SUM(damage_amount)
+    INTO cout
+    FROM participated
+    WHERE reportno IN (
+        SELECT reportno
+        FROM accident
+        WHERE EXTRACT(YEAR FROM accd_date) = year_in
+    )
+    AND driver_id = did_in;
+END;
+
 
 SQL> execute damage('12345','2003');
 25000
@@ -62,9 +67,11 @@ set serveroutput on
 create or replace procedure location_info(location_in in varchar2)
 is
 begin    
-    for i in (select name,participated.driver_id as D,reportno,accd_date
-    from accident natural join participated,person
-    where person.driver_id=participated.driver_id and location = location_in)
+    for i in (
+        select name,participated.driver_id as D,reportno,accd_date
+        from accident natural join participated,person
+        where person.driver_id=participated.driver_id and location = location_in
+    )
     loop
         dbms_output.put_line(i.name || ' ' || i.D || ' ' || i.reportno || ' ' || i.accd_date);
     end loop;
@@ -109,3 +116,42 @@ end if;
 end loop;
 close c1;
 end;
+
+
+-------------- Additional -----------------------
+
+CREATE OR REPLACE TRIGGER accident_count_trigger
+AFTER INSERT ON PARTICIPATED
+FOR EACH ROW
+DECLARE 
+    accident_count INTEGER;
+BEGIN
+    SELECT COUNT(*) INTO accident_count
+    FROM PARTICIPATED
+    WHERE driver_id = :NEW.driver_id;
+
+    IF accident_count >= 2 THEN
+        DBMS_OUTPUT.PUT_LINE('Driver with ID ' || :NEW.driver_id || ' has been in ' || accident_count || ' accidents.');
+    END IF;
+END;
+/
+
+-------------- Additional -----------------------
+
+CREATE OR REPLACE PROCEDURE display_discount AS 
+    CURSOR order_cursor IS 
+        SELECT order#, SUM(qty) as total_items, ordamt
+        FROM ORDERS JOIN ORDER_ITEMS ON ORDERS.order# = ORDER_ITEMS.order#
+        GROUP BY order#, ordamt;
+    order_record order_cursor%ROWTYPE;
+BEGIN
+    OPEN order_cursor;
+    FETCH order_cursor INTO order_record;
+    WHILE order_cursor%FOUND LOOP
+        IF order_record.total_items >= 5 THEN
+            DBMS_OUTPUT.PUT_LINE('Order#: ' || order_record.order# || ', Original Amount: ' || order_record.ordamt || ', Discount Amount: ' || order_record.ordamt * 0.2);
+        END IF;
+    END LOOP;
+    CLOSE order_cursor;
+END;
+/

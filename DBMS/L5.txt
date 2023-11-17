@@ -92,8 +92,10 @@ WHERE NOT EXISTS (
 select name, count(distinct dept) as number_of_departments
 from student natural join course natural join enroll
 where regno in (
-select regno from enroll
-group by regno having count (dept) >= 2)
+    select regno from enroll
+    group by regno 
+    having count (dept) >= 2
+    )
 group by name;
 
 ````````````````````````L4 Q3 d ``````````````````````````````

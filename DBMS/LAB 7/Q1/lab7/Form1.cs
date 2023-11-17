@@ -103,7 +103,7 @@ namespace lab7
             command1.CommandText = "alter table Person drop column" + textBox7.Text;
             command1.CommandType = CommandType.Text;
             command1.ExecuteNonQuery();
-            MessageBox.Show("Added");
+            MessageBox.Show("Deleted");
             command1.Dispose();
             conn.Close();
         }
